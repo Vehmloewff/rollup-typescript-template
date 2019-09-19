@@ -9,7 +9,8 @@
 		"format": "prettier --write \"./**\"",
 		"lint": "eslint . && npm run format",
 		"lint:test": "eslint . && npm run format:test",
-		"format:test": "prettier --check \"./**\""
+		"format:test": "prettier --check \"./**\"",
+		"postversion": "git push && git push --tags && rm -rf build/temp && npm publish"
 	},
 	"keywords": [],
 	"author": "",
