@@ -42,7 +42,7 @@ or
 npm run lint:test
 ```
 
-If you need `eslint` or `prettier` ignore a file, just add it to the `.eslintignore` or `.prettierignore`.
+If you need `eslint` or `prettier` to ignore a file, just add it to the `.eslintignore` or `.prettierignore`.
 
 ## License
 
