@@ -5,9 +5,11 @@
 ```ssh
 npx degit Vehmloewff/nodejs-template nodejs-app
 ```
+
 ```ssh
 cd nodejs-app
 ```
+
 ```ssh
 npm i
 ```
