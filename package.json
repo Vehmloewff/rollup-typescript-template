@@ -4,8 +4,8 @@
 	"description": "TODO: Add description",
 	"main": "index.js",
 	"scripts": {
-		"test": "jest",
-		"test:watch": "jest --watch",
+		"test": "jest --verbose",
+		"test:watch": "jest --watch --verbose",
 		"format": "prettier --write \"./**\"",
 		"lint": "eslint . && npm run format",
 		"lint:test": "eslint . && npm run format:test",
@@ -25,5 +25,7 @@
 		"type": "git",
 		"url": "https://github.com/Vehmloewff/todo"
 	},
-	"dependencies": {}
+	"dependencies": {
+		"debug": "^4.1.1"
+	}
 }
