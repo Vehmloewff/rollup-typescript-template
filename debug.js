@@ -5,8 +5,7 @@ const name = `TODO-change-this`;
 /**
  * @param {String?} job The job that is logging
  */
-module.exports = job => {
-
+module.exports = (job) => {
 	const log = debug(`${name}:${job}`);
 
 	/**
@@ -14,7 +13,7 @@ module.exports = job => {
 	 * @param {String} message What to log
 	 */
 	function error(message) {
-		log(chalk.black.bgRed('ERROR:'), message)
+		log(chalk.black.bgRed('ERROR:'), message);
 	}
 
 	/**
@@ -22,7 +21,7 @@ module.exports = job => {
 	 * @param {String} message What to log
 	 */
 	function warn(message) {
-		log(chalk.black.bgYellow('WARN:'), message)
+		log(chalk.black.bgYellow('WARN:'), message);
 	}
 
 	/**
@@ -30,7 +29,7 @@ module.exports = job => {
 	 * @param {String} message What to log
 	 */
 	function notice(message) {
-		log(chalk.black.bgCyan('NOTICE:'), message)
+		log(chalk.black.bgCyan('NOTICE:'), message);
 	}
 
 	/**
@@ -38,7 +37,7 @@ module.exports = job => {
 	 * @param {String} message What to log
 	 */
 	function info(message) {
-		log(chalk.black.bgGreen('INFO:'), message)
+		log(chalk.black.bgGreen('INFO:'), message);
 	}
 
 	return {
@@ -46,5 +45,5 @@ module.exports = job => {
 		warn,
 		notice,
 		info,
-	}
-}
+	};
+};

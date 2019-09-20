@@ -1,5 +1,5 @@
 const debug = require('./debug')('startup');
-	
+
 function sayHello(name) {
 	debug.error('Failed!');
 	debug.warn('Warning!');
