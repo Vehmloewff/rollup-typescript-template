@@ -2,13 +2,11 @@
 	"name": "todo",
 	"version": "1.0.0",
 	"description": "TODO: Add description",
-    "main": "dist/build.umd.js",
-    "module": "dist/build.esm.js",
+	"main": "dist/build.cjs.js",
+	"module": "dist/build.esm.js",
 	"scripts": {
-        "build": "rollup -c",
-        "dev": "rollup -c -w",
-		"test": "jest --verbose",
-		"test:watch": "jest --watch --verbose",
+		"build": "cross-env NODE_ENV=production rollup -c",
+		"test": "cross-env NODE_ENV=development rollup -c",
 		"format": "prettier --write \"./**\"",
 		"lint": "eslint . && npm run format",
 		"lint:test": "eslint . && npm run format:test",
@@ -20,12 +18,14 @@
 	"author": "",
 	"license": "MIT",
 	"devDependencies": {
+		"acorn": "^7.1.0",
+		"cross-env": "^6.0.3",
 		"eslint": "^6.4.0",
 		"eslint-config-prettier": "^6.3.0",
-		"jest": "^24.9.0",
 		"prettier": "^1.18.2",
 		"rollup": "^1.26.3",
 		"rollup-plugin-commonjs": "^10.1.0",
+		"rollup-plugin-execute": "^1.1.1",
 		"rollup-plugin-node-resolve": "^5.2.0"
 	},
 	"repository": {

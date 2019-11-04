@@ -1,23 +1,23 @@
 import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
 import pkg from './package.json';
+import execute from 'rollup-plugin-execute';
 
-const name = "todo";
+const name = 'todo';
 const sourcemap = true;
+const prod = process.env.NODE_ENV === 'production';
 
 const sharedOutputOptions = {
-    name,
-    sourcemap,
-}
+	name,
+	sourcemap,
+};
+
+const output = [{ file: pkg.main, format: 'cjs', ...sharedOutputOptions }];
+
+if (prod) output.push({ file: pkg.module, format: 'es', ...sharedOutputOptions });
 
 export default {
-	input: 'src/index.js',
-	output: [
-		{ file: pkg.main, format: 'umd', ...sharedOutputOptions },
-		{ file: pkg.module, format: 'es', ...sharedOutputOptions }
-	],
-	plugins: [
-		resolve(),
-        commonjs(),
-	]
+	input: prod ? 'src/index.js' : 'test.js',
+	output,
+	plugins: [resolve(), commonjs(), !prod && execute(`node ${pkg.main}`)],
 };
