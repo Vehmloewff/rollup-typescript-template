@@ -2,14 +2,18 @@
 	"name": "todo",
 	"version": "1.0.0",
 	"description": "TODO: Add description",
-	"main": "index.js",
+    "main": "dist/build.umd.js",
+    "module": "dist/build.esm.js",
 	"scripts": {
+        "build": "rollup -c",
+        "dev": "rollup -c -w",
 		"test": "jest --verbose",
 		"test:watch": "jest --watch --verbose",
 		"format": "prettier --write \"./**\"",
 		"lint": "eslint . && npm run format",
 		"lint:test": "eslint . && npm run format:test",
 		"format:test": "prettier --check \"./**\"",
+		"prepublishOnly": "npm run test && npm run lint:test && npm run build",
 		"postversion": "git push && git push --tags && rm -rf build/temp && npm publish"
 	},
 	"keywords": [],
@@ -17,9 +21,12 @@
 	"license": "MIT",
 	"devDependencies": {
 		"eslint": "^6.4.0",
-		"jest": "^24.9.0",
 		"eslint-config-prettier": "^6.3.0",
-		"prettier": "^1.18.2"
+		"jest": "^24.9.0",
+		"prettier": "^1.18.2",
+		"rollup": "^1.26.3",
+		"rollup-plugin-commonjs": "^10.1.0",
+		"rollup-plugin-node-resolve": "^5.2.0"
 	},
 	"repository": {
 		"type": "git",

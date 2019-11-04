@@ -4,13 +4,7 @@
 
 ```ssh
 npx degit Vehmloewff/nodejs-template nodejs-app
-```
-
-```ssh
 cd nodejs-app
-```
-
-```ssh
 npm i
 ```
 
@@ -20,11 +14,7 @@ To run jest:
 
 ```ssh
 npm test
-```
-
-or
-
-```ssh
+# or
 npm test:watch
 ```
 
@@ -34,11 +24,7 @@ This template uses a combination of `prettier` and `eslint`.
 
 ```ssh
 npm run lint
-```
-
-or
-
-```ssh
+# or
 npm run lint:test
 ```
 
