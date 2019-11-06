@@ -1,7 +1,7 @@
 import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
 import pkg from './package.json';
-import execute from 'rollup-plugin-execute';
+import command from 'rollup-plugin-command';
 
 const name = 'todo';
 const sourcemap = true;
@@ -19,5 +19,5 @@ if (prod) output.push({ file: pkg.module, format: 'es', ...sharedOutputOptions }
 export default {
 	input: prod ? 'src/index.js' : 'test.js',
 	output,
-	plugins: [resolve(), commonjs(), !prod && execute(`node ${pkg.main}`)],
+	plugins: [resolve(), commonjs(), !prod && command(`node ${pkg.main}`)],
 };

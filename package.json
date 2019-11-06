@@ -12,10 +12,14 @@
 		"lint:test": "eslint . && npm run format:test",
 		"format:test": "prettier --check \"./**\"",
 		"preversion": "npm run test && npm run lint:test && npm run build",
+		"prepublishOnly": "npm run build",
 		"postversion": "git push && git push --tags && rm -rf build/temp && npm publish"
 	},
 	"keywords": [],
-	"author": "",
+	"author": {
+		"name": "Vehmloewff",
+		"url": "https://github.com/Vehmloewff"
+	},
 	"license": "MIT",
 	"devDependencies": {
 		"acorn": "^7.1.0",
@@ -24,10 +28,11 @@
 		"eslint-config-prettier": "^6.3.0",
 		"prettier": "^1.18.2",
 		"rollup": "^1.26.3",
+		"rollup-plugin-command": "^1.0.3",
 		"rollup-plugin-commonjs": "^10.1.0",
-		"rollup-plugin-execute": "^1.1.1",
 		"rollup-plugin-node-resolve": "^5.2.0"
 	},
+	"homepage": "https://github.com/Vehmloewff/todo",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/Vehmloewff/todo"
