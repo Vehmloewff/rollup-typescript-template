@@ -1,7 +1,7 @@
 import commonjs from 'rollup-plugin-commonjs';
 import resolve from 'rollup-plugin-node-resolve';
 import pkg from './package.json';
-import execute from 'rollup-plugin-execute';
+import command from 'rollup-plugin-command';
 import typescript from 'rollup-plugin-typescript';
 
 const name = 'todo';
@@ -23,7 +23,7 @@ export default {
 	plugins: [
 		resolve(),
 		commonjs(),
-		!prod && execute(`node ${pkg.main}`),
+		!prod && command(`node ${pkg.main}`, { exitOnFail: true }),
 		typescript({
 			typescript: require('typescript'),
 		}),
