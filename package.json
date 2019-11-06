@@ -11,7 +11,7 @@
 		"lint": "eslint . && npm run format",
 		"lint:test": "eslint . && npm run format:test",
 		"format:test": "prettier --check \"./**\"",
-		"prepublishOnly": "npm run test && npm run lint:test && npm run build",
+		"preversion": "npm run test && npm run lint:test && npm run build",
 		"postversion": "git push && git push --tags && rm -rf build/temp && npm publish"
 	},
 	"keywords": [],
