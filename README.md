@@ -2,8 +2,9 @@
 
 ## Startup
 
-```ssh
-npx degit Vehmloewff/nodejs-template nodejs-app
+```sh
+npx degit Vehmloewff/nodejs-template#typescript nodejs-app
+# or the javascript branch
 cd nodejs-app
 npm i
 ```
@@ -12,7 +13,7 @@ npm i
 
 To run `test.js`:
 
-```ssh
+```sh
 npm test
 # or
 npm test -- -w
@@ -22,7 +23,7 @@ npm test -- -w
 
 This template uses a combination of `prettier` and `eslint`.
 
-```ssh
+```sh
 npm run lint
 # or
 npm run lint:test
