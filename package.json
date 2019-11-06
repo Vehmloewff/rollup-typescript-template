@@ -13,28 +13,19 @@
 		"prepublishOnly": "npm run build",
 		"postversion": "git push && git push --tags && rm -rf build/temp && npm publish"
 	},
-	"keywords": [
-		"todo",
-		"todo",
-		"todo"
-	],
-	"author": {
-		"name": "Vehmloewff",
-		"url": "https://github.com/Vehmloewff"
-	},
+	"keywords": [],
+	"author": "",
 	"files": [
 		"dist",
 		"types"
 	],
-	"keywords": [],
-	"author": "",
 	"license": "MIT",
 	"devDependencies": {
 		"acorn": "^7.1.0",
 		"cross-env": "^6.0.3",
 		"prettier": "^1.18.2",
 		"rollup": "^1.26.3",
-		"rollup-plugin-command": "^1.0.4",
+		"rollup-plugin-command": "^1.0.6",
 		"rollup-plugin-commonjs": "^10.1.0",
 		"rollup-plugin-node-resolve": "^5.2.0",
 		"rollup-plugin-typescript": "^1.0.1",
