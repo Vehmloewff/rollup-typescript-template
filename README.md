@@ -10,12 +10,12 @@ npm i
 
 ## Running the tests
 
-To run jest:
+To run `test.js`:
 
 ```ssh
 npm test
 # or
-npm test:watch
+npm test -- -w
 ```
 
 ## Linting
@@ -32,4 +32,4 @@ If you need `eslint` or `prettier` to ignore a file, just add it to the `.eslint
 
 ## License
 
-[MIT]()
+[MIT](/LICENSE)
