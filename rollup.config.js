@@ -19,5 +19,5 @@ if (prod) output.push({ file: pkg.module, format: 'es', ...sharedOutputOptions }
 export default {
 	input: prod ? 'src/index.js' : 'test.js',
 	output,
-	plugins: [resolve(), commonjs(), !prod && command(`node ${pkg.main}`)],
+	plugins: [resolve(), commonjs(), !prod && command(`node ${pkg.main}`, { exitOnFail: true })],
 };
