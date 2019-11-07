@@ -14,7 +14,10 @@
 		"postversion": "git push && git push --tags && rm -rf build/temp && npm publish"
 	},
 	"keywords": [],
-	"author": "",
+	"author": {
+		"name": "Vehmloewff",
+		"url": "https://github.com/Vehmloewff"
+	},
 	"files": [
 		"dist",
 		"types"
