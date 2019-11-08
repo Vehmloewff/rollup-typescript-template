@@ -1,6 +1,6 @@
 {
 	"name": "todo",
-	"version": "1.0.0",
+	"version": "0.0.0",
 	"description": "TODO: Add description",
 	"main": "dist/build.cjs.js",
 	"module": "dist/build.esm.js",
