@@ -1,11 +1,6 @@
 import { sayHello } from './src';
+import { it } from 'zip-tap';
 
-let exitStatus = 0;
-
-if (!/Elijah/.test(sayHello('Elijah'))) {
-	console.error(new Error('test failed'));
-	exitStatus++;
-}
-
-console.log(exitStatus === 0 ? 'OK' : `${exitStatus} PROBLEM(S) FOUND`);
-process.exit(exitStatus);
+it(`sayHello should return a gretting`, expect => {
+	expect(sayHello(`Elijah`)).toMatch(/hello.*Elijah/i);
+});
