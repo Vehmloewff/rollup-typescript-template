@@ -7,6 +7,7 @@ import typescript from 'rollup-plugin-typescript';
 const name = 'todo';
 const sourcemap = true;
 const prod = process.env.NODE_ENV === 'production';
+const watching = process.env.ROLLUP_WATCH;
 
 const sharedOutputOptions = {
 	name,
@@ -23,7 +24,7 @@ export default {
 	plugins: [
 		resolve(),
 		commonjs(),
-		!prod && command(`node ${pkg.main}`, { exitOnFail: true }),
+		!prod && command(`node ${pkg.main}`, { exitOnFail: !watching }),
 		typescript({
 			typescript: require('typescript'),
 		}),
