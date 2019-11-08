@@ -7,7 +7,7 @@
 		"esModuleInterop": true,
 		"importHelpers": true,
 		"declaration": true,
-		"declarationDir": "types",
+		"declarationDir": "typings",
 		"emitDeclarationOnly": true,
 		"lib": ["es5", "es6", "dom"]
 	},

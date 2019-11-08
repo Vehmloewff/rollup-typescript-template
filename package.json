@@ -4,6 +4,7 @@
 	"description": "TODO: Add description",
 	"main": "dist/build.cjs.js",
 	"module": "dist/build.esm.js",
+	"typings": "typings/index.d.ts",
 	"scripts": {
 		"build": "cross-env NODE_ENV=production rollup -c && tsc",
 		"test": "cross-env NODE_ENV=development rollup -c",
@@ -13,14 +14,18 @@
 		"prepublishOnly": "npm run build",
 		"postversion": "git push && git push --tags && rm -rf build/temp && npm publish"
 	},
-	"keywords": [],
+	"keywords": [
+		"todo",
+		"todo",
+		"todo"
+	],
 	"author": {
 		"name": "Vehmloewff",
 		"url": "https://github.com/Vehmloewff"
 	},
 	"files": [
 		"dist",
-		"types"
+		"typings"
 	],
 	"license": "MIT",
 	"devDependencies": {
