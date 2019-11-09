@@ -3,4 +3,10 @@ node_modules
 .gitignore
 .prettierignore
 LICENSE
-dist
+/dist
+/typings
+
+**/*.png
+**/*.ico
+**/*.map
+**/*.jpg
