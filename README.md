@@ -25,7 +25,7 @@ npm run lint
 npm run lint:test
 ```
 
-_Delete everything below this line_
+_Delete this line and everything above it_
 
 ---
 
