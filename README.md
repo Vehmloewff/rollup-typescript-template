@@ -1,12 +1,19 @@
-# nodejs-template
+# rollup-typescript-template
 
 ## Startup
 
 ```sh
-npx degit Vehmloewff/nodejs-template#typescript nodejs-app
-# or the javascript branch
-cd nodejs-app
+npx degit Vehmloewff/rollup-typescript-template typescript-app-or-package
+cd typescript-app-or-package
 npm i
+```
+
+## Building
+
+```sh
+npm build
+# or
+npm build -- -w
 ```
 
 ## Running the tests
