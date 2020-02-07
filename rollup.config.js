@@ -1,9 +1,10 @@
-import commonjs from 'rollup-plugin-commonjs';
-import resolve from 'rollup-plugin-node-resolve';
-import pkg from './package.json';
-import command from 'rollup-plugin-command';
-import typescript from 'rollup-plugin-typescript';
+import commonjs from '@rollup/plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import sucrase from '@rollup/plugin-sucrase';
 import globFiles from 'rollup-plugin-glob-files';
+import command from 'rollup-plugin-command';
+
+import pkg from './package.json';
 
 const name = 'todo';
 const sourcemap = true;
@@ -30,9 +31,9 @@ export default {
 		}),
 		resolve(),
 		commonjs(),
-		!prod && command(`zip-tap-reporter node ${pkg.main}`, { exitOnFail: !watching }),
-		typescript({
-			typescript: require('typescript'),
+		sucrase({
+			transforms: ['typescript'],
 		}),
+		!prod && command(`zip-tap-reporter node ${pkg.main}`, { exitOnFail: !watching }),
 	],
 };
