@@ -6,8 +6,8 @@
 	"module": "dist/build.esm.js",
 	"typings": "typings/index.d.ts",
 	"scripts": {
-		"build": "cross-env NODE_ENV=production rollup -c && tsc",
-		"test": "cross-env NODE_ENV=development rollup -c",
+		"build": "tsc && rollup --environment=NODE_ENV:production -c",
+		"test": "rollup --environment=NODE_ENV:development -c",
 		"lint": "prettier --write \"./**\"",
 		"lint:test": "prettier --check \"./**\"",
 		"preversion": "npm run test && npm run lint:test && npm run build",
@@ -34,7 +34,6 @@
 		"@rollup/plugin-sucrase": "^3.0.0",
 		"@rollup/plugin-typescript": "^3.0.0",
 		"acorn": "^7.1.0",
-		"cross-env": "^7.0.0",
 		"prettier": "^1.19.1",
 		"rollup": "^1.31.0",
 		"rollup-plugin-command": "^1.1.2",
