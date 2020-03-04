@@ -1,4 +1,4 @@
-import { sayHello } from '../src';
+import { sayHello } from '../src/index';
 import { describe } from 'zip-tap';
 
 describe(`sayHello`, it => {

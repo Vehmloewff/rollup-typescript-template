@@ -6,34 +6,45 @@ import command from 'rollup-plugin-command';
 
 import pkg from './package.json';
 
-const name = 'todo';
-const sourcemap = true;
-const prod = process.env.NODE_ENV === 'production';
+const building = process.env.NODE_ENV === 'production';
+const testing = process.env.NODE_ENV === 'test';
 const watching = process.env.ROLLUP_WATCH;
+const plainTests = process.env.BLAND_TESTS;
 
-const sharedOutputOptions = {
-	name,
-	sourcemap,
+const plugins = [
+	resolve(),
+	commonjs(),
+	sucrase({
+		transforms: ['typescript'],
+	}),
+];
+
+const watch = {};
+
+const build = {
+	input: `src/index.ts`,
+	output: [
+		{ file: pkg.main, format: 'cjs' },
+		{ file: pkg.module, format: 'es' },
+	],
+	plugins,
+	watch,
 };
 
-const output = [{ file: pkg.main, format: 'cjs', ...sharedOutputOptions }];
-
-if (prod) output.push({ file: pkg.module, format: 'es', ...sharedOutputOptions });
-
-export default {
-	input: prod ? 'src/index.ts' : '@tests',
-	output,
+const test = {
+	input: `@tests`,
+	output: { file: pkg.main, format: 'cjs' },
 	plugins: [
 		globFiles({
 			key: `@tests`,
 			include: `./tests/**/*.ts`,
 			justImport: true,
 		}),
-		resolve(),
-		commonjs(),
-		sucrase({
-			transforms: ['typescript'],
+		...plugins,
+		command(plainTests ? `` : `zip-tap-reporter ` + `node ${pkg.main}`, {
+			exitOnFail: !watching,
 		}),
-		!prod && command(`zip-tap-reporter node ${pkg.main}`, { exitOnFail: !watching }),
 	],
 };
+
+export default building ? build : test;
